@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h3>Multiply</h3>
+    <input type="number" id="mul1" placeholder="Enter first number">
+    <input type="number" id="mul2" placeholder="Enter second number">
+    <button onclick="multiply()">Multiply</button>
+    <p id="mulResult"></p>
+
+    <script>
+    function multiply() {
+    let val1 = parseFloat(document.getElementById('mul1').value);
+    let val2 = parseFloat(document.getElementById('mul2').value);
+    let result = val1 * val2;
+    document.getElementById('mulResult').textContent = "Result: " + result;
+    }
+    </script>
+
+</body>
+</html>

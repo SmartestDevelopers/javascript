@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>Sum (Addition)</h3>
+    <input type="number" id="sum1" placeholder="Enter first number">
+    <input type="number" id="sum2" placeholder="Enter second number">
+    <button onclick="sum()">Calculate Sum</button>
+    <p id="sumResult"></p>
+
+  <script>
+  function sum() {
+    let a = parseFloat(document.getElementById('sum1').value);
+    let b = parseFloat(document.getElementById('sum2').value);
+
+
+    let result = a + b;
+
+
+
+    document.getElementById('sumResult').textContent = "Result: " + result;
+  }
+  </script>
+
+</body>
+</html>

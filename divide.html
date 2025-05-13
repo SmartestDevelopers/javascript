@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>Divide</h3>
+    <input type="number" id="div1" placeholder="Enter dividend">
+    <input type="number" id="div2" placeholder="Enter divisor">
+    <button onclick="divide()">Divide</button>
+    <p id="divResult"></p>
+
+    <script>
+    function divide() {
+    let dividend = parseFloat(document.getElementById('div1').value);
+    let divisor = parseFloat(document.getElementById('div2').value);
+    if (divisor === 0) {
+        document.getElementById('divResult').textContent = "Cannot divide by zero.";
+    } else {
+        let result = dividend / divisor;
+        document.getElementById('divResult').textContent = "Result: " + result;
+    }
+    }
+    </script>
+
+
+</body>
+</html>

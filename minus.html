@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h3>Minus (Subtraction)</h3>
+<input type="number" id="minus1" placeholder="Enter first number">
+<input type="number" id="minus2" placeholder="Enter second number">
+<button onclick="minus()">Calculate Minus</button>
+<p id="minusResult"></p>
+
+<script>
+function minus() {
+  let num1 = parseFloat(document.getElementById('minus1').value);
+  let num2 = parseFloat(document.getElementById('minus2').value);
+  let result = num1 - num2;
+  document.getElementById('minusResult').textContent = "Result: " + result;
+}
+</script>
+
+
+</body>
+</html>

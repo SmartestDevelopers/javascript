@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h3>Plus</h3>
+<input type="number" id="plus1" placeholder="Enter first number">
+<input type="number" id="plus2" placeholder="Enter second number">
+<button onclick="plus()">Calculate Plus</button>
+<p id="plusResult"></p>
+
+<script>
+function plus() {
+  let x = parseFloat(document.getElementById('plus1').value);
+  let y = parseFloat(document.getElementById('plus2').value);
+  let result = x + y;
+  document.getElementById('plusResult').textContent = "Result: " + result;
+}
+</script>
+
+
+
+</body>
+</html>
