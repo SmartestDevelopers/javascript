@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Box Editor</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: #ccc;
+      border-radius: 10px;
+      margin: 20px auto;
+      transition: all 0.3s ease;
+    }
+
+    .controls {
+      text-align: center;
+    }
+
+    .controls input {
+      margin: 5px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align: center;">🎨 CSS Box Editor</h2>
+
+  <!-- Box -->
+  <div id="box"></div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <label>Top-Left Radius: <input type="number" id="tl" value="10"></label><br>
+    <label>Top-Right Radius: <input type="number" id="tr" value="10"></label><br>
+    <label>Bottom-Right Radius: <input type="number" id="br" value="10"></label><br>
+    <label>Bottom-Left Radius: <input type="number" id="bl" value="10"></label><br>
+    <label>Background Color: <input type="color" id="color" value="#cccccc"></label><br><br>
+
+    <button onclick="updateBox()">Update Box</button>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function updateBox() {
+      const tl = document.getElementById("tl").value + "px";
+      const tr = document.getElementById("tr").value + "px";
+      const br = document.getElementById("br").value + "px";
+      const bl = document.getElementById("bl").value + "px";
+      const color = document.getElementById("color").value;
+
+      const box = document.getElementById("box");
+      box.style.borderRadius = `${tl} ${tr} ${br} ${bl}`;
+      box.style.backgroundColor = color;
+    }
+  </script>
+
+</body>
+</html>
