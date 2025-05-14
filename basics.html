@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Basic Logics Examples</title>
+</head>
+<body>
+  <h1>JavaScript Basic Logic Examples</h1>
+  <div id="output"></div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    // Example 1: Variables and Arithmetic
+    const a = 10;
+    const b = 5;
+    const sum = a + b;
+    output.innerHTML += `<p><strong>Example 1:</strong> Sum of ${a} and ${b} is ${sum}</p>`;
+
+    // Example 2: Conditional Statement
+    const age = 18;
+    let status;
+    if (age >= 18) {
+      status = "Adult";
+    } else {
+      status = "Minor";
+    }
+    output.innerHTML += `<p><strong>Example 2:</strong> Age ${age} means you are an ${status}</p>`;
+
+    // Example 3: Loop
+    let numbers = "";
+    for (let i = 1; i <= 5; i++) {
+      numbers += i + " ";
+    }
+    output.innerHTML += `<p><strong>Example 3:</strong> Numbers from 1 to 5: ${numbers}</p>`;
+
+    // Example 4: Function
+    function multiply(x, y) {
+      return x * y;
+    }
+    const product = multiply(4, 3);
+    output.innerHTML += `<p><strong>Example 4:</strong> Multiplication of 4 and 3 is ${product}</p>`;
+
+    // Example 5: Arrays and Looping
+    const fruits = ["Apple", "Banana", "Mango"];
+    let fruitList = "<ul>";
+    for (let fruit of fruits) {
+      fruitList += `<li>${fruit}</li>`;
+    }
+    fruitList += "</ul>";
+    output.innerHTML += `<p><strong>Example 5:</strong> Fruit List:</p>${fruitList}`;
+  </script>
+</body>
+</html>

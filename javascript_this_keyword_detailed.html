@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Understanding "this" in JavaScript</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; line-height: 1.6; }
+    h1, h2 { color: #2c3e50; }
+    section { margin-bottom: 30px; background: #ffffff; padding: 20px; border-radius: 10px;
+              box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    pre, code { background: #f0f0f0; padding: 10px; display: block; border-radius: 5px; margin: 10px 0; }
+    details { margin-top: 10px; }
+    summary { font-weight: bold; cursor: pointer; margin-bottom: 10px; }
+    p.explanation { font-weight: 500; color: #34495e; }
+  </style>
+</head>
+<body>
+  <h1>Understanding <code>this</code> Keyword in JavaScript</h1>
+  <p class="explanation">
+    In JavaScript, <code>this</code> refers to the object from which a function is called.
+    Its value depends on the execution context and how the function is invoked. Understanding <code>this</code> is key to mastering object-oriented programming in JavaScript.
+  </p>
+<section><h2>1. Global Context</h2>
+<p class='explanation'>In the global execution context (outside of any function), <code>this</code> refers to the global object. In browsers, this is typically the <code>window</code> object.</p><details open><summary>Click to show examples</summary>
+<p><strong>Example 1:</strong><pre><code>console.log(this); // refers to window object in browser</code></pre></p>
+<p><strong>Example 2:</strong><pre><code>function show() { console.log(this); } show(); // also window in non-strict mode</code></pre></p>
+<p><strong>Example 3:</strong><pre><code>"use strict"; function showStrict() { console.log(this); } showStrict(); // undefined in strict mode</code></pre></p>
+<p><strong>Example 4:</strong><pre><code>var x = 10; console.log(this.x); // refers to window.x</code></pre></p>
+<p><strong>Example 5:</strong><pre><code>let a = this; console.log(a); // still window</code></pre></p>
+</details></section>
+<section><h2>2. Inside Object Methods</h2>
+<p class='explanation'>When <code>this</code> is used inside an object method, it refers to the object that owns the method. This allows access to other properties and methods of the same object.</p><details open><summary>Click to show examples</summary>
+<p><strong>Example 1:</strong><pre><code>const obj = { name: 'JS', show: function() { console.log(this.name); } }; obj.show();</code></pre></p>
+<p><strong>Example 2:</strong><pre><code>const obj2 = { count: 0, inc() { this.count++; return this.count; } }; console.log(obj2.inc());</code></pre></p>
+<p><strong>Example 3:</strong><pre><code>const obj3 = { x: 42, getX() { return this.x; } }; console.log(obj3.getX());</code></pre></p>
+<p><strong>Example 4:</strong><pre><code>let obj4 = { greet: function() { return `Hello, ${this.name}`; }, name: 'Alice' }; console.log(obj4.greet());</code></pre></p>
+<p><strong>Example 5:</strong><pre><code>let user = { name: 'Bob', sayHi() { console.log(this); } }; user.sayHi();</code></pre></p>
+</details></section>
+<section><h2>3. Arrow Functions</h2>
+<p class='explanation'>Arrow functions do not have their own <code>this</code>. Instead, they inherit <code>this</code> from their surrounding (lexical) context. This is useful in callbacks and closures.</p><details open><summary>Click to show examples</summary>
+<p><strong>Example 1:</strong><pre><code>const obj = { value: 100, show: () => console.log(this.value) }; obj.show(); // undefined</code></pre></p>
+<p><strong>Example 2:</strong><pre><code>function Timer() { this.seconds = 0; setInterval(() => { this.seconds++; console.log(this.seconds); }, 1000); }</code></pre></p>
+<p><strong>Example 3:</strong><pre><code>const user = { name: 'John', greet: () => console.log(`Hi ${this.name}`) }; user.greet(); // undefined</code></pre></p>
+<p><strong>Example 4:</strong><pre><code>let globalArrow = () => console.log(this); globalArrow(); // window</code></pre></p>
+<p><strong>Example 5:</strong><pre><code>const obj2 = { id: 1, print: function() { const arrow = () => console.log(this.id); arrow(); } }; obj2.print();</code></pre></p>
+</details></section>
+<section><h2>4. Event Handlers</h2>
+<p class='explanation'>In event handlers, <code>this</code> usually refers to the DOM element that received the event when using traditional functions. With arrow functions, <code>this</code> refers to the lexical scope.</p><details open><summary>Click to show examples</summary>
+<p><strong>Example 1:</strong><pre><code><button onclick="console.log(this)">Click Me</button> // refers to button</code></pre></p>
+<p><strong>Example 2:</strong><pre><code>document.querySelector('button').addEventListener('click', function() { console.log(this); }); // button</code></pre></p>
+<p><strong>Example 3:</strong><pre><code>document.querySelector('button').addEventListener('click', () => { console.log(this); }); // lexical scope</code></pre></p>
+<p><strong>Example 4:</strong><pre><code>function handleClick() { console.log(this); } // used as handler: refers to element</code></pre></p>
+<p><strong>Example 5:</strong><pre><code>const handler = () => console.log(this); document.body.onclick = handler; // window or outer scope</code></pre></p>
+</details></section>
+<section><h2>5. Constructors and Classes</h2>
+<p class='explanation'>When used in constructor functions or class constructors, <code>this</code> refers to the new object being created. It allows assigning properties and methods to that object.</p><details open><summary>Click to show examples</summary>
+<p><strong>Example 1:</strong><pre><code>function Person(name) { this.name = name; } const p = new Person('Tom'); console.log(p.name);</code></pre></p>
+<p><strong>Example 2:</strong><pre><code>class Animal { constructor(type) { this.type = type; } } const a = new Animal('Cat'); console.log(a.type);</code></pre></p>
+<p><strong>Example 3:</strong><pre><code>function Car() { this.speed = 0; } Car.prototype.accelerate = function() { this.speed += 10; return this.speed; }; const c = new Car(); console.log(c.accelerate());</code></pre></p>
+<p><strong>Example 4:</strong><pre><code>class Counter { constructor() { this.count = 0; setInterval(() => console.log(++this.count), 1000); } }</code></pre></p>
+<p><strong>Example 5:</strong><pre><code>function Box(w) { this.width = w; this.getW = function() { return this.width; }; } const b = new Box(5); console.log(b.getW());</code></pre></p>
+</details></section>
+</body></html>

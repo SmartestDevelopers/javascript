@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Logic Examples - Complete Guide</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; line-height: 1.6; }
+    h1, h2 { color: #333; }
+    section { margin-bottom: 30px; background: #fff; padding: 20px; border-radius: 10px;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h2 { color: #007BFF; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+    pre, code { background: #f0f0f0; padding: 10px; display: block; border-radius: 5px; margin: 10px 0; }
+    button { margin: 5px 0; padding: 6px 12px; border-radius: 4px; border: none; background-color: #007BFF; color: white; cursor: pointer; }
+    button:hover { background-color: #0056b3; }
+    summary { font-weight: bold; cursor: pointer; }
+    details { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Logic Examples - Beginner to Advanced</h1>
+  <p>This single HTML file contains <strong>17+ core JavaScript topics</strong>, each explained with <strong>5 different examples</strong>. Designed for beginners to intermediate learners, these examples include explanations and are organized by concept.</p>
+<section><h2>1. Variables and Data Types</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>let name = 'John';</code></p>
+<p><strong>Example 2:</strong><br><code>const age = 25;</code></p>
+<p><strong>Example 3:</strong><br><code>var isStudent = true;</code></p>
+<p><strong>Example 4:</strong><br><code>let score = 99.5;</code></p>
+<p><strong>Example 5:</strong><br><code>const fruits = ['apple', 'banana'];</code></p>
+</details></section>
+<section><h2>2. Operators</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>console.log(5 + 3);</code></p>
+<p><strong>Example 2:</strong><br><code>console.log(10 - 4);</code></p>
+<p><strong>Example 3:</strong><br><code>console.log(2 * 6);</code></p>
+<p><strong>Example 4:</strong><br><code>console.log(9 / 3);</code></p>
+<p><strong>Example 5:</strong><br><code>console.log(10 % 3);</code></p>
+</details></section>
+<section><h2>3. Conditional Statements</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>if (10 > 5) console.log('10 is greater');</code></p>
+<p><strong>Example 2:</strong><br><code>let age = 18; if (age >= 18) console.log('Adult');</code></p>
+<p><strong>Example 3:</strong><br><code>let num = -1; if (num < 0) console.log('Negative');</code></p>
+<p><strong>Example 4:</strong><br><code>let score = 70; if (score >= 50) console.log('Pass'); else console.log('Fail');</code></p>
+<p><strong>Example 5:</strong><br><code>let n = 2; if (n === 1) console.log('One'); else if (n === 2) console.log('Two');</code></p>
+</details></section>
+<section><h2>4. Loops</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>for (let i = 0; i < 5; i++) console.log(i);</code></p>
+<p><strong>Example 2:</strong><br><code>let i = 0; while (i < 3) { console.log(i); i++; }</code></p>
+<p><strong>Example 3:</strong><br><code>let j = 0; do { console.log(j); j++; } while (j < 2);</code></p>
+<p><strong>Example 4:</strong><br><code>['a', 'b', 'c'].forEach(e => console.log(e));</code></p>
+<p><strong>Example 5:</strong><br><code>for (let char of 'JS') console.log(char);</code></p>
+</details></section>
+<section><h2>5. Functions</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>function greet() { return 'Hello'; }</code></p>
+<p><strong>Example 2:</strong><br><code>const add = function(x, y) { return x + y; };</code></p>
+<p><strong>Example 3:</strong><br><code>const square = x => x * x;</code></p>
+<p><strong>Example 4:</strong><br><code>function sum(...args) { return args.reduce((a,b) => a + b); }</code></p>
+<p><strong>Example 5:</strong><br><code>(function() { console.log('IIFE'); })();</code></p>
+</details></section>
+<section><h2>6. Arrays</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>const arr = [1, 2, 3];</code></p>
+<p><strong>Example 2:</strong><br><code>arr.push(4);</code></p>
+<p><strong>Example 3:</strong><br><code>arr.pop();</code></p>
+<p><strong>Example 4:</strong><br><code>arr.includes(2);</code></p>
+<p><strong>Example 5:</strong><br><code>arr.map(x => x * 2);</code></p>
+</details></section>
+<section><h2>7. Objects</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>const person = { name: 'Alice', age: 25 };</code></p>
+<p><strong>Example 2:</strong><br><code>console.log(person.name);</code></p>
+<p><strong>Example 3:</strong><br><code>person.email = 'a@example.com';</code></p>
+<p><strong>Example 4:</strong><br><code>delete person.age;</code></p>
+<p><strong>Example 5:</strong><br><code>Object.keys(person);</code></p>
+</details></section>
+<section><h2>8. String Manipulation</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>'hello'.toUpperCase();</code></p>
+<p><strong>Example 2:</strong><br><code>'  spaced  '.trim();</code></p>
+<p><strong>Example 3:</strong><br><code>'abc'.includes('b');</code></p>
+<p><strong>Example 4:</strong><br><code>'a-b-c'.split('-');</code></p>
+<p><strong>Example 5:</strong><br><code>'js'.repeat(3);</code></p>
+</details></section>
+<section><h2>9. Event Handling</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code><button onclick="alert('Clicked!')">Click</button></code></p>
+<p><strong>Example 2:</strong><br><code><input oninput="console.log(this.value)"></code></p>
+<p><strong>Example 3:</strong><br><code><button onclick="this.style.color='red'">Red</button></code></p>
+<p><strong>Example 4:</strong><br><code><button onclick="document.body.style.background='lightblue'">BG</button></code></p>
+<p><strong>Example 5:</strong><br><code><button onclick="run()">Run</button><script>function run(){ alert('run'); }</script></code></p>
+</details></section>
+<section><h2>10. Error Handling</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>try { throw 'error'; } catch(e) { console.log(e); }</code></p>
+<p><strong>Example 2:</strong><br><code>try { JSON.parse('{'); } catch(e) { console.log('Invalid JSON'); }</code></p>
+<p><strong>Example 3:</strong><br><code>throw new Error('Manual error');</code></p>
+<p><strong>Example 4:</strong><br><code>try { x(); } catch(e) { console.log('x not defined'); }</code></p>
+<p><strong>Example 5:</strong><br><code>try { let n = 1/0; } finally { console.log('Done'); }</code></p>
+</details></section>
+<section><h2>11. Date & Time</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>new Date();</code></p>
+<p><strong>Example 2:</strong><br><code>new Date().toLocaleDateString();</code></p>
+<p><strong>Example 3:</strong><br><code>new Date().getFullYear();</code></p>
+<p><strong>Example 4:</strong><br><code>new Date().getHours();</code></p>
+<p><strong>Example 5:</strong><br><code>new Date().toISOString();</code></p>
+</details></section>
+<section><h2>12. ES6 Features</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>const greet = name => `Hi ${name}`;</code></p>
+<p><strong>Example 2:</strong><br><code>const [a,b] = [1,2];</code></p>
+<p><strong>Example 3:</strong><br><code>const {x,y} = {x:10,y:20};</code></p>
+<p><strong>Example 4:</strong><br><code>const arr = [1,2]; const copy = [...arr];</code></p>
+<p><strong>Example 5:</strong><br><code>const obj = {a};</code></p>
+</details></section>
+<section><h2>13. Asynchronous JavaScript</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>setTimeout(() => console.log('Timeout'), 1000);</code></p>
+<p><strong>Example 2:</strong><br><code>const p = Promise.resolve(42); p.then(console.log);</code></p>
+<p><strong>Example 3:</strong><br><code>async function test() { return 'Async'; }</code></p>
+<p><strong>Example 4:</strong><br><code>await Promise.resolve('Done'); // inside async fn</code></p>
+<p><strong>Example 5:</strong><br><code>fetch('https://jsonplaceholder.typicode.com/posts/1').then(res => res.json()).then(console.log);</code></p>
+</details></section>
+<section><h2>14. Classes & OOP</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>class A { constructor() { this.x = 1; } }</code></p>
+<p><strong>Example 2:</strong><br><code>class B extends A { say() { return 'Hi'; } }</code></p>
+<p><strong>Example 3:</strong><br><code>class C { static hi() { return 'Hello'; } }</code></p>
+<p><strong>Example 4:</strong><br><code>class D { #val = 10; getVal() { return this.#val; } }</code></p>
+<p><strong>Example 5:</strong><br><code>const obj = new A();</code></p>
+</details></section>
+<section><h2>15. Sets & Maps</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>new Set([1,2,2,3]);</code></p>
+<p><strong>Example 2:</strong><br><code>const set = new Set(); set.add(1);</code></p>
+<p><strong>Example 3:</strong><br><code>const map = new Map(); map.set('a', 1);</code></p>
+<p><strong>Example 4:</strong><br><code>map.get('a');</code></p>
+<p><strong>Example 5:</strong><br><code>map.has('a');</code></p>
+</details></section>
+<section><h2>16. Higher-Order Functions</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>[1,2,3].map(x => x * 2);</code></p>
+<p><strong>Example 2:</strong><br><code>[2,3,4].filter(x => x > 2);</code></p>
+<p><strong>Example 3:</strong><br><code>[1,2,3].reduce((a,b) => a + b, 0);</code></p>
+<p><strong>Example 4:</strong><br><code>[4,5,6].forEach(console.log);</code></p>
+<p><strong>Example 5:</strong><br><code>[7,8,9].find(x => x === 8);</code></p>
+</details></section>
+<section><h2>17. Regular Expressions</h2>
+<details open><summary>Show Examples</summary><p><strong>Example 1:</strong><br><code>/\d+/.test('123');</code></p>
+<p><strong>Example 2:</strong><br><code>'abc123'.match(/\d+/);</code></p>
+<p><strong>Example 3:</strong><br><code>'a1 b2'.replace(/\d/, '');</code></p>
+<p><strong>Example 4:</strong><br><code>'test@example.com'.match(/\S+@\S+\.\S+/);</code></p>
+<p><strong>Example 5:</strong><br><code>'words123'.search(/\d+/);</code></p>
+</details></section>
+
+</body>
+</html>
