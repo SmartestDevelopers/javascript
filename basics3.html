@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Logic Examples - Extended</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
+    h1 { color: #333; }
+    section { margin-bottom: 30px; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    h2 { color: #007BFF; }
+    pre, code { background: #eee; padding: 10px; display: block; border-radius: 5px; margin: 10px 0; }
+    button { margin: 5px 0; padding: 5px 10px; }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Logic Examples</h1>
+  <div id="content"></div>
+
+  <script>
+    const content = document.getElementById('content');
+
+    function addSection(title, examples) {
+      let html = `<section><h2>${title}</h2>`;
+      examples.forEach((example, i) => {
+        html += `<p><strong>Example ${i + 1}:</strong><br>${example}</p>`;
+      });
+      html += `</section>`;
+      content.innerHTML += html;
+    }
+
+    // Skipping previous 8 sections (already covered)
+
+    // 9. Event Handling
+    const eventExamples = [
+      `<button onclick="alert('Button clicked!')">Click Me</button>`,
+      `<input type="text" oninput="console.log('Typing...')" placeholder="Type something">`,
+      `<button onclick="this.style.backgroundColor='yellow'">Change Color</button>`,
+      `<button onclick="document.body.style.background='lightgreen'">Change Background</button>`,
+      `<button onclick="handleClick()">Run Function</button>
+       <script>
+         function handleClick() { alert('Handled by a function'); }
+       </script>`
+    ];
+    addSection("9. Event Handling", eventExamples);
+
+    // 10. Error Handling
+    const errExamples = [];
+    try {
+      errExamples.push("Try block executed: " + (() => { try { return 10 / 2; } catch(e) {} })());
+    } catch (e) {}
+
+    try {
+      JSON.parse("{ invalid JSON }");
+    } catch (e) {
+      errExamples.push("Caught JSON error: " + e.message);
+    }
+
+    errExamples.push("Throw custom error:<br><code>throw new Error('Custom Error')</code>");
+
+    errExamples.push("try/catch/finally:<br><code>try { ... } catch (e) { ... } finally { ... }</code>");
+
+    errExamples.push("Check type before call:<br><code>if (typeof func === 'function') func();</code>");
+
+    addSection("10. Error Handling", errExamples);
+
+    // 11. Date & Time
+    const now = new Date();
+    const dateExamples = [
+      `Current Date: ${now.toDateString()}`,
+      `Current Time: ${now.toLocaleTimeString()}`,
+      `Year: ${now.getFullYear()}`,
+      `Month (0-based): ${now.getMonth()}`,
+      `Custom Format: ${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`
+    ];
+    addSection("11. Date & Time", dateExamples);
+
+    // 12. ES6 Features
+    const es6Examples = [
+      `Arrow Function: <code>const add = (a, b) => a + b; add(2,3) = ${(a => b => a + b)(2)(3)}</code>`,
+      `Destructuring: <code>const [a,b] = [1,2];</code> a=${[1,2][0]}, b=${[1,2][1]}`,
+      `Object Shorthand: <code>{name, age}</code> = { name: "Joe", age: 25 }`,
+      `Template Literals: <code>\`Hello \${name}\`</code> = ${`Hello ${"User"}`}`,
+      `Spread Operator: <code>[...arr]</code> = ${[...[1, 2, 3]].join(", ")}`
+    ];
+    addSection("12. ES6 Features", es6Examples);
+  </script>
+</body>
+</html>

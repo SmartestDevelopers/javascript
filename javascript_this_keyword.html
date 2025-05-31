@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Understanding "this" in JavaScript</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; line-height: 1.6; }
+    h1, h2 { color: #333; }
+    section { margin-bottom: 30px; background: #fff; padding: 20px; border-radius: 10px;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    pre, code { background: #f0f0f0; padding: 10px; display: block; border-radius: 5px; margin: 10px 0; }
+    details { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Understanding <code>this</code> Keyword in JavaScript</h1>
+  <p>The <code>this</code> keyword in JavaScript refers to the object it belongs to. It behaves differently depending on where it is used: in a method, in a function, in an arrow function, in strict mode, or inside event handlers. Below are categorized examples with explanations.</p>
+<section><h2>1. Global Context</h2><details open><summary>Click to show examples</summary>
+<p><strong>Example 1:</strong><pre><code>console.log(this); // refers to window object in browser</code></pre></p>
+<p><strong>Example 2:</strong><pre><code>function show() { console.log(this); } show(); // also window in non-strict mode</code></pre></p>
+<p><strong>Example 3:</strong><pre><code>"use strict"; function showStrict() { console.log(this); } showStrict(); // undefined in strict mode</code></pre></p>
+<p><strong>Example 4:</strong><pre><code>var x = 10; console.log(this.x); // refers to window.x</code></pre></p>
+<p><strong>Example 5:</strong><pre><code>let a = this; console.log(a); // still window</code></pre></p>
+</details></section>
+<section><h2>2. Inside Object Methods</h2><details open><summary>Click to show examples</summary>
+<p><strong>Example 1:</strong><pre><code>const obj = { name: 'JS', show: function() { console.log(this.name); } }; obj.show();</code></pre></p>
+<p><strong>Example 2:</strong><pre><code>const obj2 = { count: 0, inc() { this.count++; return this.count; } }; console.log(obj2.inc());</code></pre></p>
+<p><strong>Example 3:</strong><pre><code>const obj3 = { x: 42, getX() { return this.x; } }; console.log(obj3.getX());</code></pre></p>
+<p><strong>Example 4:</strong><pre><code>let obj4 = { greet: function() { return `Hello, ${this.name}`; }, name: 'Alice' }; console.log(obj4.greet());</code></pre></p>
+<p><strong>Example 5:</strong><pre><code>let user = { name: 'Bob', sayHi() { console.log(this); } }; user.sayHi();</code></pre></p>
+</details></section>
+<section><h2>3. Arrow Functions</h2><details open><summary>Click to show examples</summary>
+<p><strong>Example 1:</strong><pre><code>const obj = { value: 100, show: () => console.log(this.value) }; obj.show(); // undefined</code></pre></p>
+<p><strong>Example 2:</strong><pre><code>function Timer() { this.seconds = 0; setInterval(() => { this.seconds++; console.log(this.seconds); }, 1000); }</code></pre></p>
+<p><strong>Example 3:</strong><pre><code>const user = { name: 'John', greet: () => console.log(`Hi ${this.name}`) }; user.greet(); // undefined</code></pre></p>
+<p><strong>Example 4:</strong><pre><code>let globalArrow = () => console.log(this); globalArrow(); // window</code></pre></p>
+<p><strong>Example 5:</strong><pre><code>const obj2 = { id: 1, print: function() { const arrow = () => console.log(this.id); arrow(); } }; obj2.print();</code></pre></p>
+</details></section>
+<section><h2>4. Event Handlers</h2><details open><summary>Click to show examples</summary>
+<p><strong>Example 1:</strong><pre><code><button onclick="console.log(this)">Click Me</button> // refers to button</code></pre></p>
+<p><strong>Example 2:</strong><pre><code>document.querySelector('button').addEventListener('click', function() { console.log(this); }); // button</code></pre></p>
+<p><strong>Example 3:</strong><pre><code>document.querySelector('button').addEventListener('click', () => { console.log(this); }); // window</code></pre></p>
+<p><strong>Example 4:</strong><pre><code>function handleClick() { console.log(this); } // normal function: button</code></pre></p>
+<p><strong>Example 5:</strong><pre><code>const handler = () => console.log(this); document.body.onclick = handler; // window</code></pre></p>
+</details></section>
+<section><h2>5. Constructors and Classes</h2><details open><summary>Click to show examples</summary>
+<p><strong>Example 1:</strong><pre><code>function Person(name) { this.name = name; } const p = new Person('Tom'); console.log(p.name);</code></pre></p>
+<p><strong>Example 2:</strong><pre><code>class Animal { constructor(type) { this.type = type; } } const a = new Animal('Cat'); console.log(a.type);</code></pre></p>
+<p><strong>Example 3:</strong><pre><code>function Car() { this.speed = 0; } Car.prototype.accelerate = function() { this.speed += 10; return this.speed; }; const c = new Car(); console.log(c.accelerate());</code></pre></p>
+<p><strong>Example 4:</strong><pre><code>class Counter { constructor() { this.count = 0; setInterval(() => console.log(++this.count), 1000); } }</code></pre></p>
+<p><strong>Example 5:</strong><pre><code>function Box(w) { this.width = w; this.getW = function() { return this.width; }; } const b = new Box(5); console.log(b.getW());</code></pre></p>
+</details></section>
+</body></html>

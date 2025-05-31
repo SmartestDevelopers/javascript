@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Website with Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f8f9fa;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007BFF;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+        #content {
+            padding: 20px;
+            border: 1px solid #ccc;
+            min-height: 200px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+       
+
+        /* Apply animation to content */
+        .content-animate {
+            animation: fadeInSlide 0.5s ease-out forwards;
+        }
+
+        .content-animate-home {
+            animation: scaleFadeHome 0.7s ease-out forwards;
+        }
+
+         @keyframes scaleFadeHome {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; margin: 20px 0;">My Simple Website</h1>
+    <nav>
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('about')">About</a>
+        <a onclick="showPage('gallery')">Gallery</a>
+        <a onclick="showPage('services')">Services</a>
+        <a onclick="showPage('contact')">Contact</a>
+    </nav>
+
+    <div id="content"></div>
+
+    <!-- Templates -->
+    <template id="home">
+        <div class="hero">
+            <h1>Welcome to Our Website!</h1>
+            <p>This is the home page of our simple website.</p>
+        </div>
+    </template>
+
+    <template id="about">
+        <h1>About Page</h1>
+        <p>This is the About section of the website.</p>
+    </template>
+
+    <template id="gallery">
+        <h1>Gallery Page</h1>
+        <p>Here are some images from our gallery.</p>
+    </template>
+
+    <template id="services">
+        <h1>Services Page</h1>
+        <p>We offer a variety of services to our customers.</p>
+    </template>
+
+    <template id="contact">
+        <h1>Contact Page</h1>
+        <p>Contact us at: example@example.com</p>
+    </template>
+
+    <script>
+        function showPage(pageId) {
+            const template = document.getElementById(pageId);
+            const clone = template.content.cloneNode(true);
+            const content = document.getElementById("content");
+
+            // Clear previous content
+            content.innerHTML = '';
+
+            // Create a wrapper div for animation
+            const wrapper = document.createElement('div');
+            wrapper.appendChild(clone);
+
+            // Apply appropriate animation class
+            if (pageId === 'home') {
+                wrapper.classList.add('content-animate-home');
+            } else {
+                wrapper.classList.add('content-animate');
+            }
+
+            // Append to content
+            content.appendChild(wrapper);
+        }
+
+        // Load home page by default
+        window.onload = () => showPage('home');
+    </script>
+</body>
+</html>

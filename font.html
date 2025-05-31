@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <label>Font Size:
+        <input type="number" id="fontSize" value="16">
+        <button onclick="changeFontSize()">Apply</button>
+        </label>
+        <p id="text1">This is sample text.</p>
+
+        <script>
+        function changeFontSize() {
+            const size = document.getElementById("fontSize").value + "px";
+            document.getElementById("text1").style.fontSize = size;
+        }
+        </script>
+
+
+<hr/>
+
+<label>Font Family:
+  <select id="fontFamily" onchange="changeFontFamily()">
+    <option value="Arial">Arial</option>
+    <option value="Courier New">Courier New</option>
+    <option value="Georgia">Georgia</option>
+    <option value="Verdana">Verdana</option>
+  </select>
+</label>
+<p id="text2">Change my font style!</p>
+
+<script>
+  function changeFontFamily() {
+    const family = document.getElementById("fontFamily").value;
+    document.getElementById("text2").style.fontFamily = family;
+  }
+</script>
+
+
+<hr/>
+
+
+<label>Font Color:
+  <input type="color" id="fontColor" onchange="changeFontColor()">
+</label>
+<p id="text3">Color me with the picker!</p>
+
+<script>
+  function changeFontColor() {
+    const color = document.getElementById("fontColor").value;
+    document.getElementById("text3").style.color = color;
+  }
+</script>
+
+<hr/>
+
+
+<label>Text Align:
+  <select id="textAlign" onchange="changeTextAlign()">
+    <option value="left">Left</option>
+    <option value="center">Center</option>
+    <option value="right">Right</option>
+  </select>
+</label>
+<p id="text4">Align me to the left, center, or right!</p>
+
+<script>
+  function changeTextAlign() {
+    const align = document.getElementById("textAlign").value;
+    document.getElementById("text4").style.textAlign = align;
+  }
+</script>
+
+
+<hr/>
+
+
+<label>
+  <input type="checkbox" id="boldToggle" onchange="toggleBold()"> Bold
+</label>
+<p id="text5">Make me bold or normal.</p>
+
+<script>
+  function toggleBold() {
+    const isChecked = document.getElementById("boldToggle").checked;
+    document.getElementById("text5").style.fontWeight = isChecked ? "bold" : "normal";
+  }
+</script>
+
+
+
+</body>
+</html>
